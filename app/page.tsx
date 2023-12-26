@@ -21,7 +21,7 @@ export default function Page() {
           <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>Bienvenue sur Kanso</strong> 
            <br></br>
-            L'application de gestion de projets
+            Application de gestion de projets
           </p>
 
           <div className="h-28 flex flex-col justify-between">   
