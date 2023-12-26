@@ -3,8 +3,8 @@
 const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'User',
-    email: 'user@nextmail.com',
+    name: 'user',
+    email: 'pierrepotin21@gmail.com',
     password: '123456',
   },
 ];
@@ -180,9 +180,37 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+const projects = [
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    name: `La Page d'Après`,
+    url: 'https://lapagedapres.fr/',
+    image_url: '/projects/logoLPDA.webp',
+  },
+  {
+    id: '3958dc9e-742f-4377-85e9-fec4b6a6442a',
+    name: 'Swear',
+    url: 'https://swear-shop.com/',
+    image_url: '/projects/logoSWEAR.png',
+  },
+  {
+    id: '3958dc9e-737f-4377-85e9-fec4b6a6442a',
+    name: 'Energie Animale',
+    url: 'https://energieanimale.fr/',
+    image_url: '/projects/logoENERGIE.png',
+  },
+  {
+    id: '50ca3e18-62cd-11ee-8c99-0242ac120002',
+    name: 'PullDog',
+    url: 'https://pulldog.fr/',
+    image_url: '/projects/logoPULLDOG.png',
+  },
+];
+
 module.exports = {
   users,
   customers,
   invoices,
   revenue,
+  projects,
 };
