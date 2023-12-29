@@ -123,6 +123,20 @@ export async function deleteInvoice(id: string) {
 }
 
 
+export async function updateTimer(id: string, value: number | null) {
+  console.log(id, value)
+  try {
+    await sql`
+        UPDATE timers
+        SET value = ${value}
+        WHERE id = ${id}
+      `;
+      console.log('coucou')
+  } catch (error) {
+    return { message: 'Database Error: Failed to Update Timer.' };
+  }
+}
+
 
 export async function authenticate(
   prevState: string | undefined,

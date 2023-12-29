@@ -5,6 +5,7 @@ const {
   revenue,
   users,
   projects,
+  timers,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -198,6 +199,42 @@ async function seedProjects(client) {
   }
 }
 
+async function seedTimers(client) {
+  try {
+    // Create the "projects" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS timers (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        value INT NOT NULL
+      );
+    `;
+
+    console.log(`Created "timers" table`);
+
+    // Insert data into the "projects" table
+    const insertedTimers = await Promise.all(
+      timers.map(
+        (tim) => client.sql`
+        INSERT INTO timers (name, value)
+        VALUES (${tim.name}, ${tim.value})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedTimers.length} timers`);
+
+    return {
+      createTable,
+      timers: insertedTimers,
+    };
+  } catch (error) {
+    console.error('Error seeding projects:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
@@ -206,6 +243,7 @@ async function main() {
   await seedInvoices(client);
   await seedRevenue(client);
   await seedProjects(client);
+  await seedTimers(client);
 
   await client.end();
 }

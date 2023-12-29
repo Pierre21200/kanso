@@ -207,10 +207,34 @@ const projects = [
   },
 ];
 
+const timers = [
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    name: `La page d'après`,
+    value: 600,
+  },
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    name: `swear`,
+    value: 900,
+  },
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    name: `Energie animale`,
+    value: 200,
+  },
+  {
+    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    name: `Pulldog`,
+    value: 1300,
+  },
+];
+
 module.exports = {
   users,
   customers,
   invoices,
   revenue,
   projects,
+  timers,
 };
